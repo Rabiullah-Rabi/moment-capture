@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ServiceCard from "../../../component/ServiceCard/ServiceCard";
 
 const ServiceSection = () => {
+  const [services, setServices] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/servicesHome")
+      .then((res) => res.json())
+      .then((data) => setServices(data.services))
+      .catch((err) => console.error(err));
+  }, []);
   return (
     <div className="container mx-auto py-20">
       <div className="">
@@ -12,46 +20,15 @@ const ServiceSection = () => {
           </p>
         </div>
         <div className="grid grid-cols-3 gap-10 mt-10">
-          <div className="card w-full bg-base-100 shadow-xl">
-            <figure>
-              <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Product photography</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div className="card-actions justify-end">
-                <button className="btn ">Details</button>
-              </div>
-            </div>
-          </div>
-          <div className="card w-full bg-base-100 shadow-xl">
-            <figure>
-              <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Product photography</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div className="card-actions justify-end">
-                <button className="btn ">Details</button>
-              </div>
-            </div>
-          </div>
-          <div className="card w-full bg-base-100 shadow-xl">
-            <figure>
-              <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Product photography</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div className="card-actions justify-end">
-                <button className="btn ">Details</button>
-              </div>
-            </div>
-          </div>
-              </div>
-              <div className="flex justify-center mt-10 ">
-                  <Link to="/services" className="btn mx-auto">See All </Link>
-              </div>
+          {
+            services.map(service =><ServiceCard key={service._id} service={service}></ServiceCard>)
+}
+        </div>
+        <div className="flex justify-center mt-10 ">
+          <Link to="/services" className="btn mx-auto">
+            See All{" "}
+          </Link>
+        </div>
       </div>
     </div>
   );
