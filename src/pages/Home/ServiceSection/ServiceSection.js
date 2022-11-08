@@ -20,9 +20,9 @@ const ServiceSection = () => {
           </p>
         </div>
         <div className="grid grid-cols-3 gap-10 mt-10">
-          {
-            services.map(service =><ServiceCard key={service._id} service={service}></ServiceCard>)
-}
+          {services.map((service) => (
+            <ServiceCard key={service._id} service={service}></ServiceCard>
+          ))}
         </div>
         <div className="flex justify-center mt-10 ">
           <Link to="/services" className="btn mx-auto">
