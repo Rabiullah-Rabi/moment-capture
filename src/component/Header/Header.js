@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
   const menuItems = (
     <>
       <li>
@@ -53,26 +55,37 @@ const Header = () => {
           <ul className="menu menu-horizontal p-0">{menuItems}</ul>
         </div>
         <div className="navbar-end">
-          <div>
-            <Link to='/login' className="btn mr-3">Log in </Link>
-            <Link to='/signup' className="btn">Sign Up </Link>
-          </div>
-          <div className="dropdown dropdown-hover">
-            <label tabIndex={0} className="btn m-1">
-              User Name
-            </label>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <Link>User Profile</Link>
-              </li>
-              <li>
-                <Link>Log out</Link>
-              </li>
-            </ul>
-          </div>
+          {user ? (
+            <>
+              <div className="dropdown dropdown-hover">
+                <label tabIndex={0} className="btn m-1">
+                  {user?.displayName}
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <Link to='/userprofile'>My Activities</Link>
+                  </li>
+                  <li>
+                    <Link onClick={() => logOut()}>Log out</Link>
+                  </li>
+                </ul>
+              </div>
+            </>
+          ) : (
+            <>
+              <div>
+                <Link to="/login" className="btn mr-3">
+                  Log in{" "}
+                </Link>
+                <Link to="/signup" className="btn">
+                  Sign Up{" "}
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

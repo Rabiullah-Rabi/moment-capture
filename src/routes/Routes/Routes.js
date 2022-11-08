@@ -9,6 +9,7 @@ import Login from "../../pages/Login/Login";
 import Portfolio from "../../pages/Portfolio/Portfolio";
 import Register from "../../pages/Register/Register";
 import Services from "../../pages/Services/Services/Services";
+import UserProfile from "../../pages/UserActivities/UserProfile/UserProfile";
 
 export const routes = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ export const routes = createBrowserRouter([
                 path: '/signup',
                 element: <Register></Register>
             },
+            {
+                path: '/userprofile',
+                element:<UserProfile></UserProfile>
+            }
         ]
     },
     {
