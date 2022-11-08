@@ -10,7 +10,9 @@ import Portfolio from "../../pages/Portfolio/Portfolio";
 import Register from "../../pages/Register/Register";
 import ServiceDetails from "../../pages/Services/ServiceDetails/ServiceDetails";
 import Services from "../../pages/Services/Services/Services";
+import AddService from "../../pages/UserActivities/AddService/AddService";
 import UserProfile from "../../pages/UserActivities/UserProfile/UserProfile";
+import UserReview from "../../pages/UserActivities/UserReview/UserReview";
 
 export const routes = createBrowserRouter([
   {
@@ -53,6 +55,14 @@ export const routes = createBrowserRouter([
       {
         path: "/userprofile",
         element: <UserProfile></UserProfile>,
+      },
+      {
+        path: "/reviews",
+        element: <UserReview></UserReview>,
+      },
+      {
+        path: "/addservice",
+        element: <AddService></AddService>,
       },
       {
         path: "/services/:id",

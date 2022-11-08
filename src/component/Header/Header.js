@@ -66,7 +66,13 @@ const Header = () => {
                   className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <Link to='/userprofile'>My Activities</Link>
+                    <Link to='/userprofile'>My Profile</Link>
+                  </li>
+                  <li>
+                    <Link to='/reviews'>My Review</Link>
+                  </li>
+                  <li>
+                    <Link to='/addservice'>Add A service</Link>
                   </li>
                   <li>
                     <Link onClick={() => logOut()}>Log out</Link>
