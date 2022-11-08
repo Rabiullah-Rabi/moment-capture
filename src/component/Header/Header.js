@@ -5,10 +5,11 @@ const Header = () => {
   const menuItems = (
     <>
       <li>
-        <Link to="/"> About</Link>
-        <Link to="/"> Services</Link>
-        <Link to="/"> Portfolio</Link>
-        <Link to="/"> Contact Us</Link>
+        <Link to="/about"> About</Link>
+        <Link to="/services"> Services</Link>
+        <Link to="/portfolio"> Portfolio</Link>
+        <Link to="/blog"> Blog</Link>
+        <Link to="/contact"> Contact Us</Link>
       </li>
     </>
   );
@@ -52,6 +53,10 @@ const Header = () => {
           <ul className="menu menu-horizontal p-0">{menuItems}</ul>
         </div>
         <div className="navbar-end">
+          <div>
+            <Link to='/login' className="btn mr-3">Log in </Link>
+            <Link to='/signup' className="btn">Sign Up </Link>
+          </div>
           <div className="dropdown dropdown-hover">
             <label tabIndex={0} className="btn m-1">
               User Name
