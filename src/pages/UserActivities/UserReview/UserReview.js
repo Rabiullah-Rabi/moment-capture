@@ -1,24 +1,56 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../Context/AuthContext/AuthProvider';
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
+import TableRow from "./TableRow/TableRow";
 
 const UserReview = () => {
-    const { user } = useContext(AuthContext);
-    const { uid, email, diplayName, photoURL } = user;
-    const [reviews, setReviews] = useState();
-    console.log(user);
-    useEffect(() => {
-        fetch(`http://localhost:5000/reviewsbyuser/${uid}`)
+  const { user } = useContext(AuthContext);
+  const { uid, email, diplayName, photoURL } = user;
+  const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+      fetch(`http://localhost:5000/reviewsbyuser/${uid}`)
+      .then((res) => res.json())
+      .then((data) => {
+          setReviews(data);
+          console.log(data);
+        })
+        .catch((error) => console.error(error));
+    }, []);
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/reviews/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
-            setReviews(data);
+            const remaining = reviews.filter((order) => order._id !== id);
+            setReviews(remaining);
           })
           .catch((error) => console.error(error));
-      }, []);
-    return (
-        <div>
-            <h1>list of reviews</h1>
-        </div>
-    );
+      };
+  return (
+      <div>
+          {/* <div>
+              <h1 className= "text-3xl">Hello, { diplayName}</h1>
+          </div> */}
+      <div className="overflow-x-auto container mx-auto">
+        <table className="table w-full">
+          {/* <!-- head --> */}
+          <thead>
+            <tr>
+              <th>Service Name</th>
+              <th>My Review</th>
+              <th>Ation</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* <!-- row 1 --> */}
+            {reviews.map((review) => (
+              <TableRow key={review._id} review={review} handleDelete={handleDelete}></TableRow>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 };
 
 export default UserReview;

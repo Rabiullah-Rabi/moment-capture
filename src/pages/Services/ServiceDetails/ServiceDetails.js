@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
 import AllReviews from "../../AllReviews/AllReviews";
 import PostReview from "../PostReview/PostReview";
 import Review from "../review/Review";
@@ -7,6 +8,7 @@ import Review from "../review/Review";
 const ServiceDetails = () => {
   const { service } = useLoaderData();
   const { _id, name, img, price, description } = service;
+  const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:5000/reviews/${service._id}`)
@@ -15,7 +17,7 @@ const ServiceDetails = () => {
         setReviews(data);
       })
       .catch((error) => console.error(error));
-  }, []);
+  }, [reviews]);
   return (
     <div className="container mx-auto py-24 grid lg:grid-cols-3 grid-cols-1">
       <div className="w-full mx-auto col-span-1 lg:col-span-2 pr-0 lg:pr-5">
@@ -33,7 +35,20 @@ const ServiceDetails = () => {
         </div>
         {/* Post review section  */}
         <div>
-          <PostReview service={service}></PostReview>
+          {!user ? (
+            <div className="text-center mt-5">
+              <h1 className="text-2xl font-bold">Want to Share Your experience?</h1>
+              <p>
+                You Must{" "}
+                <Link className="text-red-500" to="/login">
+                  Log in
+                </Link>{" "}
+                first
+              </p>
+            </div>
+          ) : (
+            <PostReview service={service}></PostReview>
+          )}
         </div>
       </div>
     </div>
