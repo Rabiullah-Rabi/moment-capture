@@ -11,6 +11,8 @@ const PostReview = ({ service }) => {
       position: toast.POSITION.TOP_RIGHT,
     });
   };
+  console.log(user);
+
   // console.log(user);
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -27,6 +29,7 @@ const PostReview = ({ service }) => {
       rating,
       img,
       reviewer_Img: user.photoURL,
+      userId: user.uid,
     };
     fetch("http://localhost:5000/review", {
       method: "POST",

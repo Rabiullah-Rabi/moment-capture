@@ -1,3 +1,4 @@
+
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
 import About from "../../pages/About/About";
@@ -13,6 +14,7 @@ import Services from "../../pages/Services/Services/Services";
 import AddService from "../../pages/UserActivities/AddService/AddService";
 import UserProfile from "../../pages/UserActivities/UserProfile/UserProfile";
 import UserReview from "../../pages/UserActivities/UserReview/UserReview";
+import PrivateRoute from "../PrivateRoutes/PrivateRoutes";
 
 export const routes = createBrowserRouter([
   {
@@ -54,15 +56,23 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/userprofile",
-        element: <UserProfile></UserProfile>,
+        element: (
+          <PrivateRoute>
+            <UserProfile></UserProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/reviews",
-        element: <UserReview></UserReview>,
+        element: (
+          <PrivateRoute>
+            <UserReview></UserReview>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/addservice",
-        element: <AddService></AddService>,
+        element: <PrivateRoute><AddService></AddService></PrivateRoute>,
       },
       {
         path: "/services/:id",

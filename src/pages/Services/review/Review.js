@@ -3,7 +3,6 @@ import Rating from "@mui/material/Rating";
 
 const Review = ({ review }) => {
   const { reviewer, reviewMessage, rating, reviewer_Img } = review;
-  console.log(typeof rating);
   const floatRating = parseFloat(rating);
   return (
     <div>
