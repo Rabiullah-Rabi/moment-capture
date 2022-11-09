@@ -1,14 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import {
   Link,
-  Navigate,
   useLoaderData,
   useLocation,
-  useNavigate,
 } from "react-router-dom";
 import { Title } from "../../../App";
 import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
-import AllReviews from "../../AllReviews/AllReviews";
 import PostReview from "../PostReview/PostReview";
 import Review from "../review/Review";
 
@@ -16,9 +13,6 @@ const ServiceDetails = () => {
   const { service } = useLoaderData();
   const { _id, name, img, price, description } = service;
   const location = useLocation();
-  const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
-
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {

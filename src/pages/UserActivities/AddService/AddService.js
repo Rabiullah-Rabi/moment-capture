@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
+import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Title } from "../../../App";

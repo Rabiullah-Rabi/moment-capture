@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 import { Title } from "../../App";
+import { ColorRing } from "react-loader-spinner";
 
 const Login = () => {
   const { providerLogIn, user, emailPassSignIn } = useContext(AuthContext);
@@ -42,6 +43,22 @@ const Login = () => {
     emailPassSignIn(email, password)
       .then((result) => {
         const user = result.user;
+        const userUid = { uid: user.uid };
+        // get jwt token
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userUid),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            localStorage.setItem("jwToken", data.token);
+            console.log(data);
+          });
+
+        
         navigate(from, { replace: true });
         form.reset();
       })

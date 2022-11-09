@@ -5,8 +5,8 @@ import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
 import TableRow from "./TableRow/TableRow";
 
 const UserReview = () => {
-  const { user } = useContext(AuthContext);
-  const { uid, email, diplayName, photoURL } = user;
+  const { user,logOut } = useContext(AuthContext);
+  const { uid } = user;
   const [reviews, setReviews] = useState([]);
   const showToastMessage = () => {
     toast.success("Deleted Successfully", {
@@ -14,8 +14,17 @@ const UserReview = () => {
     });
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/reviewsbyuser/${uid}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/reviewsbyuser/${uid}`, {
+      headers: {
+        authorization:`Bearer ${localStorage.getItem('jwToken')}`,
+      }
+    })
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          logOut();
+        }
+        return res.json()
+      })
       .then((data) => {
         setReviews(data);
       })
