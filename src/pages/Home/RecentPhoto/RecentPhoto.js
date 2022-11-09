@@ -3,10 +3,10 @@ import React from "react";
 const RecentPhoto = () => {
   return (
     <div>
-      <section className="overflow-hidden text-gray-700">
+      <section className="overflow-hidden text-gray-700 pb-20">
         <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
           <div className="text-center">
-            <h1 className="text-5xl font-bold mb-10">Services</h1>
+            <h1 className="text-5xl font-bold mb-10">My recent Photos</h1>
           </div>
           <div className="flex flex-wrap -m-1 md:-m-2">
             <div className="flex flex-wrap w-1/2">

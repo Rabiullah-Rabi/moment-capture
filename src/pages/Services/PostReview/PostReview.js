@@ -11,8 +11,6 @@ const PostReview = ({ service }) => {
       position: toast.POSITION.TOP_RIGHT,
     });
   };
-  console.log(user);
-
   // console.log(user);
   const handleFormSubmit = (event) => {
     event.preventDefault();

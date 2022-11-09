@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const TableRow = ({ review, handleDelete }) => {
-  const { _id, serviceName, reviewMessage } = review;
+  const { _id, serviceName, reviewMessage,rating } = review;
   return (
     <tr key={_id}>
       <td>{serviceName}</td>
       <td>{reviewMessage}</td>
+      <td>{rating}</td>
       <td>
         <div>
           <button
