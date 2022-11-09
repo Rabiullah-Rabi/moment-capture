@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Title } from "../../../App";
 
 const AddService = () => {
   const showToastMessage = () => {
@@ -42,6 +43,7 @@ const AddService = () => {
   };
   return (
     <div className="container mx-auto py-10">
+      <Title title="Add a service" />
       <div className="my-10">
         <div>
           <h1 className="text-3xl text-center font-bold">Add a Service</h1>

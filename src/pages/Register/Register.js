@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import PasswordChecklist from "react-password-checklist"
+import { Title } from "../../App";
 
 const Register = () => {
   const [password, setPassword] = useState("");
@@ -74,6 +75,7 @@ const handleGithub = () => {
 }
   return (
     <div>
+      <Title title="Register" />
       <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
         <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
           <h1 className="text-3xl font-semibold text-center uppercase">

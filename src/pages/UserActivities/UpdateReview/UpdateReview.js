@@ -1,7 +1,8 @@
 import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {  useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { Title } from "../../../App";
 
 const UpdateReview = () => {
   const review = useLoaderData();
@@ -39,6 +40,7 @@ const UpdateReview = () => {
   };
   return (
     <div>
+      <Title title="Update Review" />
       <div className="my-10 container mx-auto">
         <div>
           <h1 className="text-3xl text-center">Share Your experience</h1>

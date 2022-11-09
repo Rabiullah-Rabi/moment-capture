@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import { Title } from "../../../App";
 import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
 import TableRow from "./TableRow/TableRow";
 
@@ -34,6 +35,8 @@ const UserReview = () => {
   };
   return (
     <div>
+      <Title title="Reviews" />
+
       <ToastContainer />
       {reviews.length < 1 ? (
         <div className="container mx-auto py-80">

@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Title } from "../../App";
 
 const ErrorPage = () => {
   return (
     <div>
+      <Title title="Error" />
+
       <section className="bg-white dark:bg-gray-900">
         <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
           <div className="mx-auto max-w-screen-sm text-center">
@@ -17,10 +20,7 @@ const ErrorPage = () => {
               Sorry, we can't find that page. You'll find lots to explore on the
               home page.{" "}
             </p>
-            <Link
-              to="/"
-              className="btn"
-            >
+            <Link to="/" className="btn">
               Back to Homepage
             </Link>
           </div>

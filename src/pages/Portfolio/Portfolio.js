@@ -1,8 +1,10 @@
 import React from "react";
+import { Title } from "../../App";
 
 const Portfolio = () => {
   return (
     <div>
+      <Title title="Portfolio" />
       <section className="bg-white dark:bg-gray-900 py-56">
         <div className="py-8 px-4 mx-auto max-w-screen-md text-center lg:py-16 lg:px-12">
           <svg

@@ -1,7 +1,15 @@
+import "./App.css";
+import { RouterProvider } from "react-router-dom";
+import { routes } from "./routes/Routes/Routes";
+import { Helmet } from "react-helmet";
 
-import './App.css';
-import { RouterProvider } from 'react-router-dom';
-import { routes } from './routes/Routes/Routes';
+export const Title = ({ title }) => {
+  return (
+    <Helmet>
+      <title>MCP - {title}</title>
+    </Helmet>
+  );
+};
 
 function App() {
   return (

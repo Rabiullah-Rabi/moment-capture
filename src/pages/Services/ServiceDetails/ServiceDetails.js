@@ -6,6 +6,7 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
+import { Title } from "../../../App";
 import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
 import AllReviews from "../../AllReviews/AllReviews";
 import PostReview from "../PostReview/PostReview";
@@ -30,6 +31,8 @@ const ServiceDetails = () => {
   }, [reviews]);
   return (
     <div className="container mx-auto py-24 grid lg:grid-cols-3 grid-cols-1">
+      <Title title="Service" />
+
       <div className="w-full mx-auto col-span-1 lg:col-span-2 pr-0 lg:pr-5">
         <h1 className="text-5xl font-bold">{name}</h1>
         <img src={img} alt="" className="my-5" />
@@ -57,9 +60,9 @@ const ServiceDetails = () => {
                   state={{ from: location }}
                   className="text-red-500"
                 >
-                  Log in {" "}
+                  Log in{" "}
                 </Link>
-                 first
+                first
               </p>
             </div>
           ) : (

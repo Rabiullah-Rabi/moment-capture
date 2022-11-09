@@ -1,11 +1,13 @@
-import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
-import ServiceCard from '../../../component/ServiceCard/ServiceCard';
+import React from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { Title } from "../../../App";
+import ServiceCard from "../../../component/ServiceCard/ServiceCard";
 
 const Services = () => {
-    const { services } = useLoaderData();
-    return (
-        <div className="container mx-auto py-20">
+  const { services } = useLoaderData();
+  return (
+    <div className="container mx-auto py-20">
+      <Title title="Services" />
       <div className="">
         <div className="text-center">
           <h1 className="text-5xl font-bold">Services</h1>
@@ -20,7 +22,7 @@ const Services = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Services;

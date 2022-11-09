@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
+import { Title } from "../../App";
 
 const Login = () => {
   const { providerLogIn, user, emailPassSignIn } = useContext(AuthContext);
@@ -51,6 +52,8 @@ const Login = () => {
   };
   return (
     <div>
+      <Title title="Login" />
+
       {user ? (
         <div className="h-screen flex items-center text-center justify-center -mt-20">
           {" "}
