@@ -22,7 +22,7 @@ const UpdateReview = () => {
       reviewMessage,
       rating,
     };
-    fetch(`http://localhost:5000/reviews/${_id}`, {
+    fetch(`https://moment-capture-server.vercel.app/reviews/${_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

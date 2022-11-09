@@ -31,7 +31,7 @@ const PostReview = ({ service }) => {
       userId: user.uid,
       review_date: date      
     };
-    fetch("http://localhost:5000/review", {
+    fetch("https://moment-capture-server.vercel.app/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

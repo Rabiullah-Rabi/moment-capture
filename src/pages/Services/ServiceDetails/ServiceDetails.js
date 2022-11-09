@@ -16,7 +16,7 @@ const ServiceDetails = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews/${service._id}`)
+    fetch(`https://moment-capture-server.vercel.app/reviews/${service._id}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);

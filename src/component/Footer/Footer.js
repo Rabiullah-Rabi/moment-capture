@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className=" container mx-auto py-10">
-      <div className="flex justify-between items-center w-full">
+      <div className="md:flex justify-between items-center w-full ">
         <div className="container mx-auto">
           <img
             src="https://i.ibb.co/fXWkfQL/CAPTURE-MOMENT.png"
-            className="h-20"
+            className="md:h-20 "
             alt=""
           />
         </div>
-        <div className="w-full flex justify-end">
+        <div className="w-full flex md:justify-end justify-center mt-5">
           <div className="grid grid-flow-col gap-4">
             <Link>
               <svg

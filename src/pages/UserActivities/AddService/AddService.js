@@ -25,7 +25,7 @@ const AddService = () => {
       img: img,
       inserted_date: date,
     };
-    fetch("http://localhost:5000/services", {
+    fetch("https://moment-capture-server.vercel.app/services", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

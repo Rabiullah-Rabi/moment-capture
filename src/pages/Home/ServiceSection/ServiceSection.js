@@ -5,7 +5,7 @@ import ServiceCard from "../../../component/ServiceCard/ServiceCard";
 const ServiceSection = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/servicesHome")
+    fetch("https://moment-capture-server.vercel.app/servicesHome")
       .then((res) => res.json())
       .then((data) => setServices(data.services))
       .catch((err) => console.error(err));
@@ -19,7 +19,7 @@ const ServiceSection = () => {
             Check my services. And feel free to inbox for custom services
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-10 mt-10">
+        <div className="grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-10">
           {services.map((service) => (
             <ServiceCard key={service._id} service={service}></ServiceCard>
           ))}

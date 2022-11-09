@@ -29,7 +29,7 @@ export const routes = createBrowserRouter([
       {
         path: "/services",
         element: <Services></Services>,
-        loader: () => fetch(`http://localhost:5000/services`),
+        loader: () => fetch(`https://moment-capture-server.vercel.app/services`),
       },
       {
         path: "/about",
@@ -79,7 +79,7 @@ export const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/review/${params.id}`),
+          fetch(`https://moment-capture-server.vercel.app/review/${params.id}`),
       },
       {
         path: "/addservice",
@@ -93,7 +93,7 @@ export const routes = createBrowserRouter([
         path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://moment-capture-server.vercel.app/services/${params.id}`),
       },
       {
         path: "/unauthorized",

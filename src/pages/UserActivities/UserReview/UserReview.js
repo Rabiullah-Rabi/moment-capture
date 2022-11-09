@@ -15,7 +15,7 @@ const UserReview = () => {
     });
   };
   useEffect(() => {
-    fetch(`http://localhost:5000/reviewsbyuser/${uid}`, {
+    fetch(`https://moment-capture-server.vercel.app/reviewsbyuser/${uid}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("jwToken")}`,
       },
@@ -32,7 +32,7 @@ const UserReview = () => {
       .catch((error) => console.error(error));
   }, []);
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/reviews/${id}`, {
+    fetch(`https://moment-capture-server.vercel.app/reviews/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

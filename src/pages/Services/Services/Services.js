@@ -6,7 +6,7 @@ import ServiceCard from "../../../component/ServiceCard/ServiceCard";
 const Services = () => {
   const { services } = useLoaderData();
   return (
-    <div className="container mx-auto py-20">
+    <div className="container mx-auto py-20 px-5">
       <Title title="Services" />
       <div className="">
         <div className="text-center">
@@ -15,7 +15,7 @@ const Services = () => {
             Check my services. And feel free to inbox for custom services
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-10 mt-10">
+        <div className="grid  lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 mt-10">
           {services.map((service) => (
             <ServiceCard key={service._id} service={service}></ServiceCard>
           ))}

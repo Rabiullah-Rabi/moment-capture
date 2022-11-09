@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const AllReviews = ({service}) => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-      fetch(`http://localhost:5000/reviews/${service._id}`)
+      fetch(`https://moment-capture-server.vercel.app/reviews/${service._id}`)
       .then((res) => res.json())
       .then((data) => {
             console.log(data);

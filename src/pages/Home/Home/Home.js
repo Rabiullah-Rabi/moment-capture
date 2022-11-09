@@ -7,7 +7,7 @@ import ServiceSection from "../ServiceSection/ServiceSection";
 
 const Home = () => {
   return (
-    <div>
+    <div className="">
       <Title title="Home" />
       <Banner></Banner>
       <AboutSection></AboutSection>
