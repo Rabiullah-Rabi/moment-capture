@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
+import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
-import { ColorRing } from "react-loader-spinner";
+import {  useLoaderData, useNavigate } from "react-router-dom";
 
 const UpdateReview = () => {
   const review = useLoaderData();
@@ -14,7 +12,6 @@ const UpdateReview = () => {
     });
   };
   const navigate = useNavigate();
-  // console.log(user);
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const form = event.target;

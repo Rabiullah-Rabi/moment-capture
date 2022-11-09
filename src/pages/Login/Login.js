@@ -6,32 +6,32 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 
 const Login = () => {
-  const { providerLogIn, user, emailPassSignIn } =
-    useContext(AuthContext);
+  const { providerLogIn, user, emailPassSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-// google Sign in
-const googleProvider = new GoogleAuthProvider();
-const handleGoogle = () => {
-  providerLogIn(googleProvider)
-    .then(result => {
-      const user = result.user;
-      navigate(from, { replace: true });
-    })
-  .catch(error=>console.error(error))
-}
-// google Sign in
-const gitProvider = new GithubAuthProvider();
-const handleGithub = () => {
-  providerLogIn(gitProvider)
-    .then(result => {
-      const user = result.user;
-      navigate(from, { replace: true });
-    })
-  .catch(error=>console.error(error))
-}
+  console.log(location.state);
 
+  // google Sign in
+  const googleProvider = new GoogleAuthProvider();
+  const handleGoogle = () => {
+    providerLogIn(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.error(error));
+  };
+  // google Sign in
+  const gitProvider = new GithubAuthProvider();
+  const handleGithub = () => {
+    providerLogIn(gitProvider)
+      .then((result) => {
+        const user = result.user;
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.error(error));
+  };
   const handlelogin = (event) => {
     event.preventDefault();
     const form = event.target;

@@ -18,6 +18,7 @@ const PostReview = ({ service }) => {
     const email = user?.email || "unregistered";
     const reviewMessage = form.review.value;
     const rating = form.rating.value;
+    const date = new Date();
     const review = {
       service: _id,
       serviceName: name,
@@ -28,6 +29,7 @@ const PostReview = ({ service }) => {
       img,
       reviewer_Img: user.photoURL,
       userId: user.uid,
+      review_date: date      
     };
     fetch("http://localhost:5000/review", {
       method: "POST",

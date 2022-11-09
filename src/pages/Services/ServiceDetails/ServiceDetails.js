@@ -1,5 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import {
+  Link,
+  Navigate,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
 import AllReviews from "../../AllReviews/AllReviews";
 import PostReview from "../PostReview/PostReview";
@@ -8,6 +14,10 @@ import Review from "../review/Review";
 const ServiceDetails = () => {
   const { service } = useLoaderData();
   const { _id, name, img, price, description } = service;
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
@@ -37,13 +47,19 @@ const ServiceDetails = () => {
         <div>
           {!user ? (
             <div className="text-center mt-5">
-              <h1 className="text-2xl font-bold">Want to Share Your experience?</h1>
+              <h1 className="text-2xl font-bold">
+                Want to Share Your experience?
+              </h1>
               <p>
                 You Must{" "}
-                <Link className="text-red-500" to="/login">
-                  Log in
-                </Link>{" "}
-                first
+                <Link
+                  to="/login"
+                  state={{ from: location }}
+                  className="text-red-500"
+                >
+                  Log in {" "}
+                </Link>
+                 first
               </p>
             </div>
           ) : (
