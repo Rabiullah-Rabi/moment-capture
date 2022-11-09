@@ -1,4 +1,6 @@
 import React from "react";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 const RecentPhoto = () => {
   return (
@@ -11,48 +13,72 @@ const RecentPhoto = () => {
           <div className="flex flex-wrap -m-1 md:-m-2">
             <div className="flex flex-wrap w-1/2">
               <div className="w-1/2 p-1 md:p-2">
-                <img
-                  alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(70).webp"
-                />
+                <PhotoProvider>
+                  <PhotoView src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(70).webp">
+                    <img
+                      className="block object-cover object-center w-full h-full rounded-lg"
+                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(70).webp"
+                      alt=""
+                    />
+                  </PhotoView>
+                </PhotoProvider>
               </div>
               <div className="w-1/2 p-1 md:p-2">
-                <img
-                  alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
-                />
+                <PhotoProvider>
+                  <PhotoView src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp">
+                    <img
+                      alt="gallery"
+                      className="block object-cover object-center w-full h-full rounded-lg"
+                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
+                    />
+                  </PhotoView>
+                </PhotoProvider>
               </div>
               <div className="w-full p-1 md:p-2">
-                <img
-                  alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-                />
+                <PhotoProvider>
+                  <PhotoView src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp">
+                    <img
+                      alt="gallery"
+                      className="block object-cover object-center w-full h-full rounded-lg"
+                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
+                    />
+                  </PhotoView>
+                </PhotoProvider>
               </div>
             </div>
             <div className="flex flex-wrap w-1/2">
               <div className="w-full p-1 md:p-2">
-                <img
-                  alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp"
-                />
+                <PhotoProvider>
+                  <PhotoView src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp">
+                    <img
+                      alt="gallery"
+                      className="block object-cover object-center w-full h-full rounded-lg"
+                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp"
+                    />
+                  </PhotoView>
+                </PhotoProvider>
               </div>
               <div className="w-1/2 p-1 md:p-2">
-                <img
-                  alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(75).webp"
-                />
+                <PhotoProvider>
+                  <PhotoView src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(75).webp">
+                    <img
+                      alt="gallery"
+                      className="block object-cover object-center w-full h-full rounded-lg"
+                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(75).webp"
+                    />
+                  </PhotoView>
+                </PhotoProvider>
               </div>
               <div className="w-1/2 p-1 md:p-2">
-                <img
-                  alt="gallery"
-                  className="block object-cover object-center w-full h-full rounded-lg"
-                  src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(77).webp"
-                />
+                <PhotoProvider>
+                  <PhotoView src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(77).webp">
+                    <img
+                      alt="gallery"
+                      className="block object-cover object-center w-full h-full rounded-lg"
+                      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(77).webp"
+                    />
+                  </PhotoView>
+                </PhotoProvider>
               </div>
             </div>
           </div>
