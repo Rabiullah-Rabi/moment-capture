@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TableRow = ({ review, handleDelete }) => {
   const { _id, serviceName, reviewMessage } = review;
@@ -14,7 +15,9 @@ const TableRow = ({ review, handleDelete }) => {
           >
             Delete
           </button>
-          <button className="btn bg-yellow-500">Edit</button>
+          <Link to={`/update/${_id}`}>
+            <button className="btn bg-yellow-500">Edit</button>
+          </Link>
         </div>
       </td>
     </tr>

@@ -7,28 +7,28 @@ const UserReview = () => {
   const { uid, email, diplayName, photoURL } = user;
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-      fetch(`http://localhost:5000/reviewsbyuser/${uid}`)
+    fetch(`http://localhost:5000/reviewsbyuser/${uid}`)
       .then((res) => res.json())
       .then((data) => {
-          setReviews(data);
-          console.log(data);
-        })
-        .catch((error) => console.error(error));
-    }, []);
-    const handleDelete = (id) => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            const remaining = reviews.filter((order) => order._id !== id);
-            setReviews(remaining);
-          })
-          .catch((error) => console.error(error));
-      };
+        setReviews(data);
+        console.log(data);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/reviews/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const remaining = reviews.filter((order) => order._id !== id);
+        setReviews(remaining);
+      })
+      .catch((error) => console.error(error));
+  };
   return (
-      <div>
-          {/* <div>
+    <div>
+      {/* <div>
               <h1 className= "text-3xl">Hello, { diplayName}</h1>
           </div> */}
       <div className="overflow-x-auto container mx-auto">
@@ -44,7 +44,11 @@ const UserReview = () => {
           <tbody>
             {/* <!-- row 1 --> */}
             {reviews.map((review) => (
-              <TableRow key={review._id} review={review} handleDelete={handleDelete}></TableRow>
+              <TableRow
+                key={review._id}
+                review={review}
+                handleDelete={handleDelete}
+              ></TableRow>
             ))}
           </tbody>
         </table>

@@ -12,6 +12,7 @@ import Register from "../../pages/Register/Register";
 import ServiceDetails from "../../pages/Services/ServiceDetails/ServiceDetails";
 import Services from "../../pages/Services/Services/Services";
 import AddService from "../../pages/UserActivities/AddService/AddService";
+import UpdateReview from "../../pages/UserActivities/UpdateReview/UpdateReview";
 import UserProfile from "../../pages/UserActivities/UserProfile/UserProfile";
 import UserReview from "../../pages/UserActivities/UserReview/UserReview";
 import PrivateRoute from "../PrivateRoutes/PrivateRoutes";
@@ -69,6 +70,16 @@ export const routes = createBrowserRouter([
             <UserReview></UserReview>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateReview></UpdateReview>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/review/${params.id}`),
       },
       {
         path: "/addservice",
