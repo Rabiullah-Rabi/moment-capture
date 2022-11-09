@@ -1,10 +1,10 @@
-
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
 import About from "../../pages/About/About";
 import Blog from "../../pages/Blog/Blog/Blog";
 import Contact from "../../pages/Contact/Contact";
 import ErrorPage from "../../pages/ErrorPage/ErrorPage";
+import UnAuthorized from "../../pages/ErrorPage/UnAuthorized";
 import Home from "../../pages/Home/Home/Home";
 import Login from "../../pages/Login/Login";
 import Portfolio from "../../pages/Portfolio/Portfolio";
@@ -83,13 +83,21 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/addservice",
-        element: <PrivateRoute><AddService></AddService></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <AddService></AddService>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/services/${params.id}`),
+      },
+      {
+        path: "/unauthorized",
+        element: <UnAuthorized></UnAuthorized>,
       },
     ],
   },

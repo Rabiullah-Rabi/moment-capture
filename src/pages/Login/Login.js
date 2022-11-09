@@ -5,14 +5,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 import { Title } from "../../App";
-import { ColorRing } from "react-loader-spinner";
 
 const Login = () => {
-  const { providerLogIn, user, emailPassSignIn } = useContext(AuthContext);
+  const { providerLogIn, user, emailPassSignIn, jwtToken } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  console.log(location.state);
 
   // google Sign in
   const googleProvider = new GoogleAuthProvider();
@@ -20,6 +19,8 @@ const Login = () => {
     providerLogIn(googleProvider)
       .then((result) => {
         const user = result.user;
+        const userUid = { uid: user.uid };
+        jwtToken({ userUid });
         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
@@ -30,6 +31,8 @@ const Login = () => {
     providerLogIn(gitProvider)
       .then((result) => {
         const user = result.user;
+        const userUid = { uid: user.uid };
+        jwtToken({ userUid });
         navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
@@ -44,21 +47,22 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         const userUid = { uid: user.uid };
-        // get jwt token
-        fetch("http://localhost:5000/jwt", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(userUid),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            localStorage.setItem("jwToken", data.token);
-            console.log(data);
-          });
+        jwtToken({ userUid });
 
-        
+        // get jwt token
+        // fetch("http://localhost:5000/jwt", {
+        //   method: "POST",
+        //   headers: {
+        //     "content-type": "application/json",
+        //   },
+        //   body: JSON.stringify(userUid),
+        // })
+        //   .then((res) => res.json())
+        //   .then((data) => {
+        //     localStorage.setItem("jwToken", data.token);
+        //     console.log(data);
+        //   });
+
         navigate(from, { replace: true });
         form.reset();
       })

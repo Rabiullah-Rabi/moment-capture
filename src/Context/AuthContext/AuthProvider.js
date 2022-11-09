@@ -26,17 +26,31 @@ const AuthProvider = ({ children }) => {
   const updateUserProfile = (profile) => {
     return updateProfile(auth.currentUser, profile);
   };
+  //jwt token
+  const jwtToken = ({ userUid }) => {
+    fetch("http://localhost:5000/jwt", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(userUid),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        localStorage.setItem("jwToken", data.token);
+      });
+  };
   // Log in  with email password
   const emailPassSignIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
-// Log out User
+  // Log out User
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
   };
-// observer
+  // observer
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -44,8 +58,8 @@ const AuthProvider = ({ children }) => {
     });
     return () => unSubscribe();
   }, []);
-    
-    // popup for proverder log in 
+
+  // popup for proverder log in
   const providerLogIn = (provider) => {
     return signInWithPopup(auth, provider);
   };
@@ -57,6 +71,7 @@ const AuthProvider = ({ children }) => {
     emailPassSignIn,
     updateUser: updateUserProfile,
     logOut,
+    jwtToken,
   };
 
   return (

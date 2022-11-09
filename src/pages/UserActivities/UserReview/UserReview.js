@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { Title } from "../../../App";
 import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
 import TableRow from "./TableRow/TableRow";
 
 const UserReview = () => {
-  const { user,logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const { uid } = user;
   const [reviews, setReviews] = useState([]);
   const showToastMessage = () => {
@@ -16,14 +17,14 @@ const UserReview = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/reviewsbyuser/${uid}`, {
       headers: {
-        authorization:`Bearer ${localStorage.getItem('jwToken')}`,
-      }
+        authorization: `Bearer ${localStorage.getItem("jwToken")}`,
+      },
     })
       .then((res) => {
-        if (res.status === 401 || res.status === 403) {
-          logOut();
-        }
-        return res.json()
+        // if (res.status === 401 || res.status === 403) {
+        //   logOut();
+        // }
+        return res.json();
       })
       .then((data) => {
         setReviews(data);

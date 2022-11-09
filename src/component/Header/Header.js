@@ -60,7 +60,7 @@ const Header = () => {
             <>
               <div className="dropdown dropdown-hover">
                 <label tabIndex={0} className="btn m-1">
-                  {user?.displayName}
+                  {user?.displayName?user.displayName:"User"}
                 </label>
                 <ul
                   tabIndex={0}
