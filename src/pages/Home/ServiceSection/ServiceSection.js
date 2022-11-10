@@ -11,7 +11,7 @@ const ServiceSection = () => {
       .catch((err) => console.error(err));
   }, []);
   return (
-    <div className="container mx-auto py-20">
+    <div className="container mx-auto py-20 px-3">
       <div className="">
         <div className="text-center">
           <h1 className="text-5xl font-bold">Services</h1>

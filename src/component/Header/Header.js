@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
-
+import "./Header.css";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const menuItems = (
@@ -17,7 +17,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className="container mx-auto py-3">
+    <div className="container mx-auto p-3 ">
       <div className="navbar bg-base-100">
         <div className="navbar-start w-full justify-between">
           <Link to="/" className="">
@@ -27,7 +27,7 @@ const Header = () => {
               alt=""
             />
           </Link>
-          <div className="dropdown">
+          <div className="dropdown dropdown-left">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,33 +46,25 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 top-12"
             >
               {menuItems}
               {user ? (
                 <>
-                  <div className="dropdown dropdown-hover">
-                    <label tabIndex={0} className="btn m-1">
-                      {user?.displayName ? user.displayName : "User"}
-                    </label>
-                    <ul
-                      tabIndex={0}
-                      className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-                    >
-                      <li>
-                        <Link to="/userprofile">My Profile</Link>
-                      </li>
-                      <li>
-                        <Link to="/reviews">My Review</Link>
-                      </li>
-                      <li>
-                        <Link to="/addservice">Add A service</Link>
-                      </li>
-                      <li>
-                        <Link onClick={() => logOut()}>Log out</Link>
-                      </li>
-                    </ul>
-                  </div>
+                  <ul className="">
+                    <li>
+                      <Link to="/userprofile">My Profile</Link>
+                    </li>
+                    <li>
+                      <Link to="/reviews">My Review</Link>
+                    </li>
+                    <li>
+                      <Link to="/addservice">Add A service</Link>
+                    </li>
+                    <li>
+                      <Link onClick={() => logOut()}>Log out</Link>
+                    </li>
+                  </ul>
                 </>
               ) : (
                 <>
@@ -95,7 +87,7 @@ const Header = () => {
         <div className="navbar-end hidden lg:flex">
           {user ? (
             <>
-              <div className="dropdown dropdown-hover">
+              <div className="dropdown dropdown-hover dropdown-left">
                 <label tabIndex={0} className="btn m-1">
                   {user?.displayName ? user.displayName : "User"}
                 </label>

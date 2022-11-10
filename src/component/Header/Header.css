@@ -1,0 +1,6 @@
+.dropdown-left .dropdown-content {
+    top: 40px;
+    right: 0;
+    bottom: auto;
+    transform-origin: right;
+}
