@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import { createContext } from "react";
 import app from "../../firebase/firebase.init";
+import { ColorRing } from "react-loader-spinner";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -48,6 +49,7 @@ const AuthProvider = ({ children }) => {
   // Log out User
   const logOut = () => {
     setLoading(true);
+
     return signOut(auth);
   };
   // observer

@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ColorRing } from "react-loader-spinner";
 import { useLoaderData } from "react-router-dom";
 import { Title } from "../../../App";
 import ServiceCard from "../../../component/ServiceCard/ServiceCard";
+import { AuthContext } from "../../../Context/AuthContext/AuthProvider";
 
 const Services = () => {
   const { services } = useLoaderData();
+  const { loading } = useContext(AuthContext);
+  if (loading) {
+    return (
+      <div className="container flex justify-center py-32">
+        <ColorRing
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+          wrapperStyle={{}}
+          wrapperClass="blocks-wrapper"
+          colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+        />
+      </div>
+    );
+  }
   return (
     <div className="container mx-auto py-20 px-5">
       <Title title="Services" />

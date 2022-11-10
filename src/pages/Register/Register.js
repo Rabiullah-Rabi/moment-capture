@@ -6,11 +6,12 @@ import "react-toastify/dist/ReactToastify.css";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import PasswordChecklist from "react-password-checklist";
 import { Title } from "../../App";
+import { ColorRing } from "react-loader-spinner";
 
 const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const { user, createUser, updateUser, providerLogIn, jwtToken } =
+  const { user, createUser, updateUser, providerLogIn, jwtToken, loading } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -45,7 +46,6 @@ const Register = () => {
       displayName: name,
       photoURL: photoURL,
     };
-    console.log(profile);
     updateUser(profile)
       .then(() => {})
       .catch((error) => console.error(error));

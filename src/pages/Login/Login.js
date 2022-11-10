@@ -5,9 +5,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../Context/AuthContext/AuthProvider";
 import { Title } from "../../App";
+import { ColorRing } from "react-loader-spinner";
 
 const Login = () => {
-  const { providerLogIn, user, emailPassSignIn, jwtToken } =
+  const { providerLogIn, user, emailPassSignIn, jwtToken, loading } =
     useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();

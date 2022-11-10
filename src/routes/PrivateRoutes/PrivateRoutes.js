@@ -12,7 +12,7 @@ const PrivateRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div>
+      <div className="container flex justify-center py-32">
         <ColorRing
           visible={true}
           height="80"
